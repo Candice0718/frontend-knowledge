@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">测试throttle</button>
+    <script src="./debounce.js"></script>
+    <script src="./throttle.js"></script>
+    <script>
+        function log(text) {
+            console.log(`${text}`);
+        }
+        const _debounce = debounce(log, 1000, true);
+        window.addEventListener('resize', () => _debounce('debounce')
+        );
+        const _throttle = throttle(log, 1000);
+        document.getElementById('btn').addEventListener('click', () => _throttle('throttle'));
+        
+    </script>
+</body>
+</html>
